@@ -148,3 +148,8 @@ result.txt
 
 .vscode/
 .idea/
+
+/conf/
+!/conf/config.default.json
+
+/data/

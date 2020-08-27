@@ -1,27 +1,39 @@
 name: 'Github JD-sign bot'
 
-on:
+onon:
   push:
-    branches:
-      - master
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
     schedule:
       - cron: '5 16 * * *'
+    watch:
+    types: started
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
-    - name: 'Checkout codes'
-      uses: actions/checkout@v2
-    - name: 'Use Node.js'
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v2
+    - name: 初始化Python
+      uses: actions/setup-python@v2
       with:
-        node-version: '12.x'
-    - name: 'Run app'
-      env:
-        JD_COOKIE: ${{ secrets.JD_COOKIE }}
-        PUSH_KEY: ${{ secrets.PUSH_KEY }}
+        python-version: 3.7
+    - name: 签到
       run: |
-        cd jd_sign_bot
-        npm install
-        node app.js
+        cd JD-Coin
+        pip install -r requirements.txt
+
+        user='${{ secrets.JD_USER }}'
+        pwd='${{ secrets.JD_PWD }}'
+
+        echo "{
+          "debug": false,
+          "jd": {
+            "username": $user,
+            "password": $pwd
+          }
+        }" > test.json
+
+        python app/main.py
