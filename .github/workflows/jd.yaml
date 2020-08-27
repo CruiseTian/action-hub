@@ -25,7 +25,16 @@ jobs:
         cd JD-Coin
         pip3 install -r requirements.txt
 
-        bash test.sh
+        user='${{ secrets.JD_USER }}'
+        pwd='${{ secrets.JD_PWD }}'
+
+        echo "{
+          \"debug\": false,
+          \"jd\": {
+            \"username\": $user,
+            \"password\": $pwd
+          }
+        }"
         cat conf/config.json
 
         python3 app/main.py
