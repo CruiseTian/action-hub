@@ -34,7 +34,7 @@ jobs:
             \"username\": $user,
             \"password\": $pwd
           }
-        }"
+        }" > ./conf/config.json
         cat conf/config.json
 
         python3 app/main.py
