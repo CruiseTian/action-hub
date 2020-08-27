@@ -1,6 +1,6 @@
 name: 'Github JD-sign bot'
 
-onon:
+on:
   push:
     branches: [ master ]
   pull_request:
