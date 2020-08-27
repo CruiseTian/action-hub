@@ -29,13 +29,16 @@ jobs:
           git config --local user.name "GitHub Action"
           git add -A
           git commit -m "?? add a BingPic" -a
+          git pull origin master
+        with:
+          github_token: ${{ secrets.TOKEN }}
       - name: 'Push changes'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.TOKEN }}
-      - name: 'Create a Release'
-        uses: elgohr/Github-Release-Action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          args: BingImage
+      #- name: 'Create a Release'
+      #  uses: elgohr/Github-Release-Action@master
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      #  with:
+      #    args: BingImage
