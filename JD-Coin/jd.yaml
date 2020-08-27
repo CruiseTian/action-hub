@@ -1,0 +1,42 @@
+name: 'Github JD-sign bot'
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    schedule:
+      - cron: '5 16 * * *'
+    watch:
+    types: started
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: 初始化Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+    - name: 签到
+      run: |
+        cd JD-Coin
+        pip3 install -r requirements.txt
+        pip3 install PyQtWebEngine
+        pip3 install pyopengl
+
+        user='${{ secrets.JD_USER }}'
+        pwd='${{ secrets.JD_PWD }}'
+
+        echo "{
+          \"debug\": false,
+          \"jd\": {
+            \"username\": \"$user\",
+            \"password\": \"$pwd\"
+          }
+        }" > ./conf/config.json
+        cat conf/config.json
+
+        python3 app/main.py
