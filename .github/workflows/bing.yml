@@ -1,4 +1,4 @@
-name: 'GitHub Actions BingPicApi'
+name: 'BingPic Crawler action'
 
 on:
   push:
