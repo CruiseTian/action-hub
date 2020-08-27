@@ -18,12 +18,10 @@ jobs:
       with:
         node-version: '12.x'
     - name: 'Run app'
-    - run: |
-        cd jd_sign_bot
-        npm install
-    - run: |
-        cd jd_sign_bot
-        node app.js
       env:
         JD_COOKIE: ${{ secrets.JD_COOKIE }}
         PUSH_KEY: ${{ secrets.PUSH_KEY }}
+      run: |
+        cd jd_sign_bot
+        npm install
+        node app.js
