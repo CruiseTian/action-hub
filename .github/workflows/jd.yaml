@@ -33,7 +33,8 @@ jobs:
           \"jd\": {
             \"username\": $user,
             \"password\": $pwd
-          }
+          },
+          \"jobs_skip\": [\"DataStation\"]
         }" > ./conf/config.json
         cat conf/config.json
 
