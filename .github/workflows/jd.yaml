@@ -18,6 +18,7 @@ jobs:
               with:
                 node-version: '12.x'
             - name: Run app
+            - run: cd jd_sign_bot
               run: npm install
             - run: node app.js
               env:

@@ -23,6 +23,7 @@ jobs:
         python-version: 3.7
     - name: 签到
       run: |
+        cd wyy-action
         pip install -r requirements.txt
         
         user='${{ secrets.USER }}'

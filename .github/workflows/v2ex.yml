@@ -20,7 +20,9 @@ jobs:
               with:
                 node-version: '12.x'
             - name: Run
-              run: npm install
+              run: |
+                cd V2ex-Auto-Sign
+                npm install
             - run: node v2ex.js
               env:
                 V2EXCK: ${{ secrets.V2EXCK }}

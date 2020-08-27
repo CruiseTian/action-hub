@@ -23,4 +23,4 @@ jobs:
       env:
         HOSTLOC_USERNAME: ${{ secrets.HOSTLOC_USERNAME }}
         HOSTLOC_PASSWORD: ${{ secrets.HOSTLOC_PASSWORD }}
-      run: python hostloc_get_points.py
+      run: python ./hostloc-auto-get-points/hostloc_get_points.py
