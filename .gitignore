@@ -149,6 +149,7 @@ result.txt
 .vscode/
 .idea/
 
+JD-Coin/
 JD-Coin/conf/
 !JD-Coin/conf/config.default.json
 
