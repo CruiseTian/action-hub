@@ -143,8 +143,3 @@ function sign() {
 }
 
 sign();
-
-
-
-
-
