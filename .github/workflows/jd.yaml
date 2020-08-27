@@ -23,7 +23,7 @@ jobs:
     - name: Run app
       env:
         JD_COOKIE: ${{ secrets.JD_COOKIE }}
-        PUSH_KEY: ${{ secrets.PUSH_KEY }}
+        PUSH_KEY: ${{ secrets.SCKEY }}
       run: |
         cd jd_sign_bot
         npm install
