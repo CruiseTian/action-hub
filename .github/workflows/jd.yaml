@@ -24,6 +24,8 @@ jobs:
       run: |
         cd JD-Coin
         pip3 install -r requirements.txt
+        pip3 install PyQtWebEngine
+        pip3 install pyopengl
 
         user='${{ secrets.JD_USER }}'
         pwd='${{ secrets.JD_PWD }}'
