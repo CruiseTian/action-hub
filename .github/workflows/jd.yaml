@@ -26,5 +26,6 @@ jobs:
         pip3 install -r requirements.txt
 
         bash test.sh
+        cat conf/config.json
 
         python3 app/main.py
