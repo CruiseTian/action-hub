@@ -23,7 +23,7 @@ jobs:
     - name: 签到
       run: |
         cd JD-Coin
-        pip install -r requirements.txt
+        pip3 install -r requirements.txt
 
         user='${{ secrets.JD_USER }}'
         pwd='${{ secrets.JD_PWD }}'
@@ -34,6 +34,6 @@ jobs:
             "username": $user,
             "password": $pwd
           }
-        }" > test.json
+        }" > ./conf/config.json
 
-        python app/main.py
+        python3 app/main.py

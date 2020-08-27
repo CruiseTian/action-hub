@@ -140,7 +140,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Dependency directories
-node_modules/
+/node_modules/
 package-lock.json
 
 JD_DailyBonus.js
@@ -149,7 +149,7 @@ result.txt
 .vscode/
 .idea/
 
-/conf/
-!/conf/config.default.json
+JD-Coin/conf/
+!JD-Coin/conf/config.default.json
 
-/data/
+JD-Coin/data/
