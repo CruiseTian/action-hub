@@ -23,7 +23,9 @@ jobs:
               run: |
                 cd V2ex-Auto-Sign
                 npm install
-            - run: node v2ex.js
+            - run: |
+                cd V2ex-Auto-Sign
+                node v2ex.js
               env:
                 V2EXCK: ${{ secrets.V2EXCK }}
                 QMSGAPI: ${{ secrets.QMSGAPI }}
