@@ -1,4 +1,4 @@
-name: 签到
+name: 网易云音乐签到+刷歌
 
 on:
   push:
