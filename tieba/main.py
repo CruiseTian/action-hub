@@ -176,15 +176,9 @@ def main():
         logger.info("开始签到第" + str(n) + "个用户")
         tbs = get_tbs(i)
         favorites = get_favorite(i)
-        if len(favorites)!=23:
-            message="签到出错,请检查BUDSS"
-            logger.info(message)
-            payload = {'text': "百度贴吧", 'desp': message}
-            requests.post(ftqq_url, params=payload)
-            return
         for j in favorites:
-        client_sign(i, tbs, j["id"], j["name"])
-    logger.info("完成签到")
+            client_sign(i, tbs, j["id"], j["name"])
+        logger.info("完成签到")
     logger.info("所有用户签到结束")
     message="签到成功,共签到"+str(len(favorites))+"个吧"
     logger.info(message)
