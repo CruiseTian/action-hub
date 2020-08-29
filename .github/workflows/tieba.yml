@@ -22,4 +22,5 @@ jobs:
       - name: 'Start Sign'
         env:
           BDUSS: ${{ secrets.TIEBA_BDUSS }}
+          SCKEY: ${{ secrets.SCKEY }}
         run: python ./tieba/main.py

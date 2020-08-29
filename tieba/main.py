@@ -41,6 +41,7 @@ SIGN_KEY = 'tiebaclient!!!'
 UTF8 = "utf-8"
 SIGN = "sign"
 KW = "kw"
+SCKEY = "SCKEY"
 
 s = requests.Session()
 
@@ -169,14 +170,26 @@ def client_sign(bduss, tbs, fid, kw):
 
 def main():
     b = os.environ['BDUSS'].split('#')
+    sckey = os.environ['SCKEY']
+    ftqq_url = "https://sc.ftqq.com/%s.send"%(sckey)
     for n, i in enumerate(b):
         logger.info("开始签到第" + str(n) + "个用户")
         tbs = get_tbs(i)
         favorites = get_favorite(i)
+        if len(favorites)==2:
+            message="签到出错,请检查BUDSS"
+            logger.info(message)
+            payload = {'text': "百度贴吧", 'desp': message}
+            requests.post(ftqq_url, params=payload)
+            return
         for j in favorites:
-            client_sign(i, tbs, j["id"], j["name"])
-        logger.info("完成第" + str(n) + "个用户签到")
+        client_sign(b, tbs, j["id"], j["name"])
+    logger.info("完成签到")
     logger.info("所有用户签到结束")
+    message="签到成功,共签到"+str(len(favorites))+"个吧"
+    logger.info(message)
+    payload = {'text': "百度贴吧", 'desp': message}
+    requests.post(ftqq_url, params=payload)
 
 
 if __name__ == '__main__':
