@@ -176,7 +176,8 @@ def main():
         logger.info("开始签到第" + str(n) + "个用户")
         tbs = get_tbs(i)
         favorites = get_favorite(i)
-        if len(favorites)==2:
+        print(favorites)
+        if len(favorites)!=23:
             message="签到出错,请检查BUDSS"
             logger.info(message)
             payload = {'text': "百度贴吧", 'desp': message}
