@@ -1,0 +1,33 @@
+name: 'EUserv 德鸡续期 '
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+     - master
+  schedule:
+    - cron: '39 6 * * *'
+
+jobs:
+  auto_renew:
+    runs-on: ubuntu-latest
+    steps:
+      - name: '检测环境'
+        uses: actions/checkout@v2
+
+      - name: '运行模式 python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
+
+      - name: '安装相关依赖'
+        run: |
+          python -m pip install --upgrade requests
+          python -m pip install --upgrade beautifulsoup4
+      - name: '执行续期中……'
+        env:
+          USERNAME: ${{ secrets.EU_USERNAME }}
+          PASSWORD: ${{ secrets.EU_PASSWORD }}
+          TG_BOT_TOKEN: ${{ secrets.TG_EU_BOT_TOKEN }}
+          TG_USER_ID: ${{ secrets.TG_USER_ID }}          
+        run: python AC-EUserv/main.py
