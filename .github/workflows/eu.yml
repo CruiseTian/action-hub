@@ -2,9 +2,9 @@ name: 'EUserv 德鸡续期 '
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches:
-  #    - master
+  push:
+    branches:
+     - master
   schedule:
     - cron: '39 6 * * *'
 
