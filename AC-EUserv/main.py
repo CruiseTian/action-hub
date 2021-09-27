@@ -20,10 +20,10 @@ SCKEY = ''  # 这里填Server酱的key，无需推送可不填 示例: SCU646xxx
 # sre24 https://sre24.com/
 SRE24_TOKEN = ''  # 填sre24的token
 
-PROXIES = {
-    "http": "http://127.0.0.1:10808",
-    "https": "http://127.0.0.1:10808"
-}
+#PROXIES = {
+#    "http": "http://127.0.0.1:10808",
+#    "https": "http://127.0.0.1:10808"
+#}
 
 desp = ''  # 空值
 
@@ -36,8 +36,7 @@ def log(info: str):
 
 def login(username: str, password: str) -> (str, requests.session):
     headers = {
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-                      "Chrome/83.0.4103.116 Safari/537.36",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36"
         "origin": "https://www.euserv.com"
     }
     url = "https://support.euserv.com/index.iphp"
@@ -69,8 +68,7 @@ def get_servers(sess_id: str, session: requests.session) -> {}:
     d = {}
     url = "https://support.euserv.com/index.iphp?sess_id=" + sess_id
     headers = {
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-                      "Chrome/83.0.4103.116 Safari/537.36",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36"
         "origin": "https://www.euserv.com"
     }
     f = session.get(url=url, headers=headers)
@@ -90,7 +88,7 @@ def renew(sess_id: str, session: requests.session, password: str, order_id: str)
     url = "https://support.euserv.com/index.iphp"
     headers = {
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
-                      "Chrome/83.0.4103.116 Safari/537.36",
+                      "Chrome/93.0.4577.82 Safari/537.36",
         "Host": "support.euserv.com",
         "origin": "https://support.euserv.com",
         "Referer": "https://support.euserv.com/index.iphp"
