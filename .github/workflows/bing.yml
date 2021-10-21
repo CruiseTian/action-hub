@@ -1,9 +1,9 @@
 name: 'BingPic Crawler action'
 
 on:
-  push:
-    branches: 
-      - master
+#   push:
+#     branches: 
+#       - master
   schedule:
     - cron: '0 16 * * *'
 jobs:
